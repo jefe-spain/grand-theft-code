@@ -1,0 +1,227 @@
+/*
+  Grand Theft Code: interface rules.
+
+  build.py joins the lines of each rule (leading whitespace is dropped, nothing
+  is added between lines) and puts one newline between rules. So break lines
+  only after an opening brace, a comma or a semicolon, never at a space. Comment
+  lines are removed. __SCENE__ is replaced with scene.svg as a data URI.
+
+  Only the stable selectors listed by T3 Code's theme guide are used.
+*/
+
+/* Neon tube flicker for headings */
+@keyframes tube{
+  0%,
+  100%{
+    text-shadow:0 0 1px #fff,0 0 8px rgba(255,46,151,.75),0 0 22px rgba(255,46,151,.45)
+  }
+  50%{
+    text-shadow:0 0 1px #fff,0 0 12px rgba(255,46,151,.95),0 0 34px rgba(0,213,255,.55)
+  }
+}
+
+/* Type: Monaspace Neon when installed, system monospace otherwise */
+body,
+.chat-markdown,
+.composer-tiptap,
+[data-slot="sidebar"],
+[data-slot="button"],
+[data-slot="input"]{
+  font-family:
+    "Monaspace Neon",
+    "Monaspace Neon Var",
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    monospace !important;
+  font-feature-settings:"calt","liga","ss01","ss02";
+}
+
+.chat-markdown code,
+.chat-markdown-codeblock,
+.chat-markdown-codeblock *{
+  font-family:"Monaspace Neon",ui-monospace,Menlo,monospace !important;
+}
+
+/* Chat background, top layer first: animated scene, sun stripes, sun disc, grid lines, sky */
+[data-workspace-area="conversation"]{
+  background:
+    url("__SCENE__") 0 0/100% 100% no-repeat,
+    repeating-linear-gradient(180deg,transparent 0 22px,rgba(255,214,224,.95) 22px 30px) 50% 100%/640px 300px no-repeat,
+    radial-gradient(circle at 50% 100%,rgba(255,226,92,.85) 0,rgba(255,138,76,.75) 45%,rgba(255,46,151,.7) 70%,transparent 70.5%) 50% 100%/640px 320px no-repeat,
+    linear-gradient(90deg,rgba(138,63,252,.10) 1px,transparent 1px) 0 0/44px 100%,
+    linear-gradient(180deg,#efe4ff 0,#ffe3f3 40%,#ffd9de 72%,#ffe9c9 100%);
+}
+
+/* Assistant messages: white card with a violet glow */
+[data-message-role="assistant"] .chat-markdown{
+  background:rgba(255,255,255,.96) !important;
+  border:1px solid #f1c4e1;
+  border-radius:16px;
+  padding:18px 22px !important;
+  line-height:1.7;
+  box-shadow:0 10px 30px -14px rgba(138,63,252,.55),0 0 0 4px rgba(255,255,255,.45);
+}
+
+/* Composer: glass card, pink neon border, cyan offset shadow */
+[data-slot="composer-host"]{
+  border-radius:16px;
+  border:2px solid #ff2e97 !important;
+  background:rgba(255,255,255,.92) !important;
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  box-shadow:
+    0 0 0 3px rgba(255,255,255,.9),
+    0 0 18px rgba(255,46,151,.75),
+    0 0 46px rgba(255,46,151,.35),
+    8px 10px 0 -2px rgba(0,213,255,.55);
+}
+
+/* User bubble: sunset gradient */
+[data-user-message-bubble]{
+  border-radius:18px 18px 4px 18px;
+  background:linear-gradient(120deg,#ffe45c,#ffa26b 50%,#ff6fb5) !important;
+  color:#2a1050 !important;
+  border:0;
+  box-shadow:0 8px 24px -8px rgba(255,46,151,.75),inset 0 1px 0 rgba(255,255,255,.7);
+}
+
+/* Markdown inside assistant messages */
+.chat-markdown h1,
+.chat-markdown h2,
+.chat-markdown h3{
+  color:#ff2e97;
+  font-style:italic;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  animation:tube 3.2s ease-in-out infinite;
+}
+
+.chat-markdown h1{
+  border-bottom:2px solid #00d5ff;
+  box-shadow:0 6px 12px -8px #00d5ff;
+  padding-bottom:.2em;
+}
+
+.chat-markdown a{
+  color:#8a1fe0;
+  text-decoration-color:#00d5ff;
+  text-decoration-thickness:2px;
+  text-underline-offset:3px;
+}
+
+.chat-markdown strong{
+  color:#c4006a;
+}
+
+.chat-markdown :not(pre)>code{
+  background:#2a1050;
+  color:#7df3ff;
+  border-radius:6px;
+  padding:.1em .4em;
+  box-shadow:0 0 8px rgba(0,213,255,.5);
+}
+
+.chat-markdown blockquote{
+  border-left:4px solid #00d5ff;
+  background:#f4fdff;
+  box-shadow:-6px 0 14px -6px #00d5ff;
+  padding:.4em 1em;
+}
+
+.chat-markdown-codeblock{
+  border-radius:12px;
+  border:2px solid #00d5ff;
+  box-shadow:0 0 16px rgba(0,213,255,.6),0 0 40px -8px rgba(138,63,252,.5);
+}
+
+/* App chrome: header, sidebar, thread rows */
+[data-chat-header]{
+  background:rgba(255,255,255,.7) !important;
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border-bottom:2px solid #ff2e97;
+  box-shadow:0 0 16px rgba(255,46,151,.55);
+}
+
+[data-slot="sidebar-inner"]{
+  background:linear-gradient(180deg,#efe4ff 0,#ffe3f3 55%,#ffe9c9 100%) !important;
+  border-right:2px solid #8a3ffc;
+  box-shadow:0 0 18px rgba(138,63,252,.5);
+}
+
+[data-thread-item]{
+  border-radius:8px;
+  transition:box-shadow .15s;
+}
+
+[data-thread-item]:hover{
+  box-shadow:inset 3px 0 0 #ff2e97,0 0 12px -2px rgba(255,46,151,.6);
+}
+
+[data-slot="project-monogram"]{
+  filter:drop-shadow(0 0 7px rgba(0,213,255,.9));
+}
+
+/* Controls and popups */
+[data-slot="button"]{
+  border-radius:8px;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+}
+
+[data-slot="dialog-popup"],
+[data-slot="popover-popup"],
+[data-slot="menu-popup"]{
+  border-radius:12px;
+  border:2px solid #8a3ffc;
+  box-shadow:0 0 20px rgba(138,63,252,.6),0 0 60px -10px rgba(255,46,151,.55);
+}
+
+[data-slot="tooltip-popup"]{
+  background:#2a1050 !important;
+  color:#7df3ff !important;
+  border-radius:6px;
+  box-shadow:0 0 12px rgba(0,213,255,.7);
+}
+
+[data-slot="switch"][data-checked]{
+  box-shadow:0 0 14px rgba(255,46,151,.9);
+}
+
+[data-slot="input"]:focus,
+[data-slot="select-trigger"]:focus-visible{
+  box-shadow:0 0 0 2px #00d5ff,0 0 18px rgba(0,213,255,.7);
+}
+
+/* Scrollbars, icons, selection */
+[data-slot="scroll-area-thumb"]{
+  background:linear-gradient(180deg,#8a3ffc,#ff2e97,#ffa26b,#ffe45c) !important;
+  border-radius:999px;
+}
+
+::-webkit-scrollbar-thumb{
+  background:linear-gradient(180deg,#8a3ffc,#ff2e97,#ffa26b,#ffe45c);
+  border-radius:999px;
+}
+
+svg.lucide{
+  stroke-width:1.75;
+  stroke-linecap:round;
+  filter:drop-shadow(0 0 2px rgba(255,46,151,.35));
+}
+
+::selection{
+  background:#00d5ff;
+  color:#2a1050;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion:reduce){
+  .chat-markdown h1,
+  .chat-markdown h2,
+  .chat-markdown h3{
+    animation:none;
+  }
+}
