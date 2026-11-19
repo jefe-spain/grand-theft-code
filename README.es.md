@@ -4,9 +4,9 @@ Un tema animado de atardecer para [T3 Code](https://t3.codes). Las palmeras se m
 
 **[Demo en vivo](https://jefe-spain.github.io/grand-theft-code/)** · [Read in English](README.md)
 
-![Grand Theft Code aplicado a una ventana de chat simulada](assets/preview.png)
+![Maqueta animada de T3 Code con el tema Grand Theft Code](assets/mockup.svg)
 
-La imagen es la [página de demo](docs/index.html): una ventana de chat simulada con el CSS real del tema. No es una captura de T3 Code.
+La imagen es una maqueta animada, dibujada como un único SVG. El fondo es la escena real del tema. La ventana que lo rodea imita la de T3 Code, y todos los hilos y mensajes que aparecen son inventados. Para ver el CSS real del tema en marcha, abre la [demo en vivo](https://jefe-spain.github.io/grand-theft-code/).
 
 ## Instalación
 
@@ -35,7 +35,9 @@ Probado con T3 Code 0.1.10 en macOS. Los temas se aplican en las apps de escrito
 | `grand-theft-code` | [`themes/grand-theft-code.json`](themes/grand-theft-code.json) | Todo, incluido el logo VI |
 | `grand-theft-code-clean` | [`themes/grand-theft-code-clean.json`](themes/grand-theft-code-clean.json) | El mismo tema sin el logo |
 
-![Grand Theft Code Clean](assets/preview-clean.png)
+![Grand Theft Code Clean en la página de demo](assets/preview-clean.png)
+
+Esta es una captura de la [página de demo](docs/index.html), una ventana de chat simulada con el CSS real del tema.
 
 ## Qué trae
 
@@ -58,8 +60,10 @@ Los ficheros de `themes/` se generan. Edita las fuentes y vuelve a construir:
 
 ```sh
 python3 build.py           # escribe themes/*.json y docs/index.html
-python3 build.py --check   # lo que ejecuta el CI: falla si lo generado está desfasado
+python3 tools/mockup.py    # redibuja la imagen animada del principio de esta página
 ```
+
+El CI ejecuta los dos con `--check` y falla si algún fichero generado está desfasado.
 
 Solo necesita Python 3.9 o superior.
 
@@ -70,8 +74,9 @@ Solo necesita Python 3.9 o superior.
 | [`src/scene.svg`](src/scene.svg) | El fondo animado. Ábrelo en un navegador para verlo solo |
 | [`src/demo.html`](src/demo.html) | La ventana de chat simulada de la demo |
 | [`build.py`](build.py) | Une las fuentes en los ficheros del tema y comprueba los límites de T3 Code |
+| [`tools/mockup.py`](tools/mockup.py) | Dibuja la maqueta animada, `assets/mockup.svg` |
 | [`tools/wordmark.py`](tools/wordmark.py) | Convierte texto en el rótulo trazado del logo |
-| [`tools/screenshots.sh`](tools/screenshots.sh) | Genera las imágenes de `assets/` |
+| [`tools/screenshots.sh`](tools/screenshots.sh) | Captura la página de demo para `assets/preview-clean.png` |
 
 T3 Code admite 50.000 caracteres de CSS por tema y ningún fichero externo; por eso la escena viaja dentro del CSS como data URI. El build falla si un cambio incumple alguna de las dos reglas.
 

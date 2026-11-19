@@ -1,5 +1,5 @@
 #!/bin/sh
-# Render the README screenshots from the demo page with headless Chrome.
+# Capture the demo page for the README with headless Chrome.
 # usage: tools/screenshots.sh   (macOS: needs Google Chrome and the built-in sips)
 set -eu
 cd "$(dirname "$0")/.."
@@ -28,5 +28,4 @@ shot() { # shot <output.png> <query string>
   echo "wrote $1"
 }
 
-shot assets/preview.png "?shot=$HEIGHT"
 shot assets/preview-clean.png "?shot=$HEIGHT&variant=clean"

@@ -36,7 +36,8 @@
     .vs{animation:vs 7s ease-in-out infinite}
     @keyframes vs{0%{translate:-160px 0}30%,100%{translate:480px 0}}
     /* /logo */
-    @media (prefers-reduced-motion:reduce){*{animation:none!important}}
+    /* Without motion: park the clouds in the sky and hide what only makes sense while moving */
+    @media (prefers-reduced-motion:reduce){*{animation:none!important}.cl{translate:calc(var(--y)*3 + 14vw) var(--y)}.pl,.sh{display:none}}
   </style>
   <defs>
     <!-- Four-point star -->

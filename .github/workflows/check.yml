@@ -18,3 +18,5 @@ jobs:
           python-version: "3.12"
       - name: Built themes match the sources and fit T3 Code's limits
         run: python3 build.py --check
+      - name: Animated mock-up matches the sources
+        run: python3 tools/mockup.py --check
