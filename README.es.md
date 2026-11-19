@@ -22,7 +22,8 @@ Pega esto en un hilo de T3 Code:
 Instala el tema Grand Theft Code para T3 Code:
 
 1. Llama a t3_theme_read y toma themesDir del resultado.
-2. Descarga https://raw.githubusercontent.com/jefe-spain/grand-theft-code/main/themes/grand-theft-code.json en esa carpeta, con el mismo nombre de fichero.
+2. Descarga este fichero en esa carpeta, con el mismo nombre:
+   https://raw.githubusercontent.com/jefe-spain/grand-theft-code/main/themes/grand-theft-code.json
 3. Llama a t3_theme_set con themeId "grand-theft-code" y appearance "light".
 ```
 

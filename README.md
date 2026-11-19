@@ -28,7 +28,8 @@ Paste this into a T3 Code thread:
 Install the Grand Theft Code theme for T3 Code:
 
 1. Call t3_theme_read and take themesDir from the result.
-2. Download https://raw.githubusercontent.com/jefe-spain/grand-theft-code/main/themes/grand-theft-code.json into that folder, keeping the file name.
+2. Download this file into that folder, keeping its name:
+   https://raw.githubusercontent.com/jefe-spain/grand-theft-code/main/themes/grand-theft-code.json
 3. Call t3_theme_set with themeId "grand-theft-code" and appearance "light".
 ```
 
