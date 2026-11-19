@@ -8,7 +8,7 @@
 <!--
   Mock chat window. It is not T3 Code: it only reuses the stable selectors that
   T3 Code exposes to themes, so the real theme CSS can be shown in a browser.
-  build.py replaces the themes placeholder below with the built theme files.
+  scripts/build.ts replaces the themes placeholder below with the built theme files.
 -->
 <style>
   *{box-sizing:border-box}
@@ -122,7 +122,7 @@
 
   for (const b of buttons) b.addEventListener("click", () => apply(b.dataset.variant));
   const params = new URLSearchParams(location.search);
-  // tools/screenshots.sh passes ?shot=<height> to pin the page height for a clean crop.
+  // scripts/screenshots.sh passes ?shot=<height> to pin the page height for a clean crop.
   if (params.has("shot")) document.body.style.height = params.get("shot") + "px";
   apply(params.get("variant") === "clean" ? "grand-theft-code-clean" : "grand-theft-code");
 </script>

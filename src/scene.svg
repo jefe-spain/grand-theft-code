@@ -5,7 +5,7 @@
   scene follows the chat area. The sky gradient, grid lines and striped sun are
   CSS layers in theme.css, not part of this file.
 
-  build.py joins the lines (leading whitespace is dropped, nothing is added
+  The build joins the lines (leading whitespace is dropped, nothing is added
   between lines), removes comment lines and escapes each hash so the result fits
   in a CSS url(). Keep every tag on one line and use single quotes only.
   Lines between the logo markers are left out of the Clean variant.
@@ -83,7 +83,7 @@
     <clipPath id='vc'>
       <use href='#vi'/>
     </clipPath>
-    <!-- Wordmark: three lines of Pricedown Black converted to outlines (see tools/wordmark.py) -->
+    <!-- Wordmark: three lines of Pricedown Black converted to outlines -->
     <path id='wm' d='
       M77.9 84.3C82.8 84.3 85.4 82.5 85.4 78.6V24H59.2C54.2 24 51.7 25.9 51.7 29.8V64.3C51.7 68.1 54.2 70 59.2 70H70.4V72.7C70.4 72.8 70.3 72.9 70.2 72.9H51.7V84.3Z
       M70.4 58.6H66.8C66.8 58.6 66.7 58.5 66.7 58.4V35.7C66.7 35.6 66.8 35.5 66.8 35.5H70.4Z

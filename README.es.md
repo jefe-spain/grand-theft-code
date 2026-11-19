@@ -56,11 +56,10 @@ Probado con T3 Code 0.1.10 en macOS. Los temas se aplican en las apps de escrito
 
 ## Desarrollo
 
-Los ficheros del tema se generan a partir de las fuentes de `src/`. Python 3.9 o superior, sin dependencias.
+Los ficheros del tema se generan a partir de las fuentes de `src/` con un pequeño script en TypeScript. Necesita Node 24 y no tiene dependencias en ejecución.
 
 ```sh
-python3 build.py          # src/ -> themes/ y la página de demo
-python3 tools/mockup.py   # la imagen animada de arriba
+npm run build   # src/ -> themes/, la página de demo y la imagen animada
 ```
 
 ## Créditos

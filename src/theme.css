@@ -1,7 +1,7 @@
 /*
   Grand Theft Code: interface rules.
 
-  build.py joins the lines of each rule (leading whitespace is dropped, nothing
+  The build joins the lines of each rule (leading whitespace is dropped, nothing
   is added between lines) and puts one newline between rules. So break lines
   only after an opening brace, a comma or a semicolon, never at a space. Comment
   lines are removed. __SCENE__ is replaced with scene.svg as a data URI.

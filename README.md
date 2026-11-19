@@ -62,11 +62,10 @@ Tested with T3 Code 0.1.10 on macOS. Themes apply to the desktop and web apps, n
 
 ## Development
 
-The theme files are built from the sources in `src/`. Python 3.9 or newer, no dependencies.
+The theme files are built from the sources in `src/` with a small TypeScript script. It needs Node 24 and has no runtime dependencies.
 
 ```sh
-python3 build.py          # src/ -> themes/ and the demo page
-python3 tools/mockup.py   # the animated preview above
+npm run build   # src/ -> themes/, the demo page and the animated preview
 ```
 
 ## Credits

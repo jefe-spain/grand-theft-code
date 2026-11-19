@@ -1,6 +1,6 @@
 #!/bin/sh
 # Capture the demo page for the README with headless Chrome.
-# usage: tools/screenshots.sh   (macOS: needs Google Chrome and the built-in sips)
+# usage: scripts/screenshots.sh   (macOS: needs Google Chrome and the built-in sips)
 set -eu
 cd "$(dirname "$0")/.."
 CHROME="${CHROME:-/Applications/Google Chrome.app/Contents/MacOS/Google Chrome}"
