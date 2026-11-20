@@ -300,17 +300,18 @@ export function renderMockup(sceneDataUri: string, theme: Theme): string {
         "</g>",
     );
 
-    // Work log.
+    // Work log, indented to line up with the text inside the reply card.
     const small = { size: 11, fill: FAINT };
-    out.push(text(x, 132, "Working for 3s", { ...small, cls: tl.show(T.work, T.reply, false) }));
+    const wx = x + 22;
+    out.push(text(wx, 132, "Working for 3s", { ...small, cls: tl.show(T.work, T.reply, false) }));
     out.push(
       `<g class='${tl.show(T.reply)}'>` +
-        text(x, 132, "Worked for 3s", small) +
-        icon("chevron-right", x + textWidth("Worked for 3s", 11) + 5, 123, 10, FAINT) +
+        text(wx, 132, "Worked for 3s", small) +
+        icon("chevron-right", wx + textWidth("Worked for 3s", 11) + 5, 123, 10, FAINT) +
         "</g>",
     );
-    out.push(`<g class='${tl.show(T.tool1)}'>${icon("terminal", x, 145, 11, FAINT)}${text(x + 18, 154.5, "Ran 2 commands", small)}</g>`);
-    out.push(`<g class='${tl.show(T.tool2)}'>${icon("wrench", x, 167, 11, FAINT)}${text(x + 18, 176.5, "Set the theme", small)}</g>`);
+    out.push(`<g class='${tl.show(T.tool1)}'>${icon("terminal", wx, 145, 11, FAINT)}${text(wx + 18, 154.5, "Ran 2 commands", small)}</g>`);
+    out.push(`<g class='${tl.show(T.tool2)}'>${icon("wrench", wx, 167, 11, FAINT)}${text(wx + 18, 176.5, "Set the theme", small)}</g>`);
 
     // Assistant reply card. Its parts are revealed one after another.
     const cy = 192;

@@ -63,6 +63,17 @@ body,
   box-shadow:0 10px 30px -14px rgba(138,63,252,.55),0 0 0 4px rgba(255,255,255,.45);
 }
 
+/* Work log, thinking and "Working for" rows: indented to line up with the text inside the reply card */
+[data-timeline-row-kind="working"],
+[data-timeline-row-kind="work"],
+[data-timeline-row-kind="work-live"],
+[data-timeline-row-kind="work-toggle"],
+[data-timeline-row-kind="thinking"],
+[data-timeline-row-kind="turn-fold"],
+[data-timeline-row-kind="attempt-fold"]{
+  padding-inline:19px;
+}
+
 /* Composer: glass card, pink neon border, cyan offset shadow */
 [data-slot="composer-host"]{
   border-radius:16px;
